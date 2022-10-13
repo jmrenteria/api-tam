@@ -3,6 +3,7 @@ package com.example.api;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.api.services.InfoServices;
 import com.example.api.services.dataResponse.InfoResponse;
@@ -23,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
                 InfoResponse r = response.body();
-                System.out.println("Hola");
+                Log.i("Info", "Conexión establecida");
                 System.out.println(r.data.get(0).getNames());
             }
 
             @Override
             public void onFailure(Call<InfoResponse> call, Throwable t) {
-                System.out.println("f");
+                Log.i("Info", "Conexión denegada");
             }
         });
     }
