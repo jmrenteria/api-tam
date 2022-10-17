@@ -20,88 +20,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="152dp"
         android:backgroundTint="@color/dark_red"
         android:text="@string/Create"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="127dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="44dp"
-        android:backgroundTint="@color/dark_red"
-        android:text="@string/Read"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/dark_red"
-        android:text="@string/Delete"
-        tools:layout_editor_absoluteX="68dp"
-        tools:layout_editor_absoluteY="350dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="236dp"
-        android:backgroundTint="@color/dark_red"
-        android:text="@string/Upload"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="290dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="23dp"
-        android:ems="10"
-        android:hint="@string/Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/Username"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="@string/Rol"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        tools:layout_editor_absoluteY="652dp" />
 
     <ListView
-        android:layout_width="380dp"
-        android:layout_height="297dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="26dp"
-        android:background="@color/light_red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/listUsers"
+        android:layout_width="381dp"
+        android:layout_height="368dp"
+        android:background="@color/dark_grey"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Description"
+        android:textSize="18dp"
+        tools:layout_editor_absoluteX="123dp"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <Button
+        android:id="@+id/BtnSearch"
+        android:layout_width="119dp"
+        android:layout_height="38dp"
+        android:backgroundTint="@color/dark_red"
+        android:text="@string/Read"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="180dp" />
+
+    <EditText
+        android:id="@+id/writeID"
+        android:layout_width="122dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="@string/ID"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="180dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
