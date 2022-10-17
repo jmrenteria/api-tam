@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">API</string>
+
+    <string name="Tittle">CRUD</string>
+
+    <string name="Delete">Eliminar</string>
+    <string name="Upload">Actualizar</string>
+    <string name="Create">Agregar</string>
+    <string name="Read">Visualizar</string>
+
+    <string name="Name">Nombre</string>
+    <string name="Username">Usuario</string>
+    <string name="Rol">Rol</string>
 </resources>
