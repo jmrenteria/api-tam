@@ -1,0 +1,35 @@
+ACTIVITY_MAIN: visualizacion de usuarios
+
+BtnSearch: consultar por id
+writeID: donde se ingresa el id para la consulta
+listUsers: la lista en la que se ven los usuarios y se seleccionan
+btnCreate: se redirecciona a la vista activity_create
+
+
+ACTIVITY_CREATE: layout de creacion de nuevos usuarios
+
+addName: añade el nombre del usuario
+addUsername: añade el nombre de usuario del usuario
+addRol: añade el rol del usuario
+btnAddUser: crea el usuario en la bd
+btnBack2: vuelve al layout activity_main
+
+
+ACTIVITY_USER_VIEW: layout actualizacion de datos
+
+noID: se pone automaticamente el ID del usuario seleccionado en la lista
+autoName: se pone automaticamente el nombre del usuario seleccionado en la lista
+autoUser: se pone automaticamente el usuario seleccionado en la lista
+autoRol: se pone automaticamente el rol del usuario seleccionado en la lista
+btnUpdate: redirecciona a la bista activity_update
+btnDelete: elimina el usuario de manera permanente, vuelve automaticamente a activity_main
+btnBack: vuelve al layout activity_main
+
+
+ACTIVITY_UPDATE
+
+upName: actualiza el nombre del usuario
+upUserName: actualiza el usuario del usuario
+upRol: actualiza el rol del usuario
+btnUpdateUser: actualiza el usuario en la bd
+btnBack3: vuelve al layout activity_user_view
