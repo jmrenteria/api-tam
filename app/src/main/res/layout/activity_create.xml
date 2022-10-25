@@ -46,7 +46,7 @@
         android:layout_width="104dp"
         android:layout_height="51dp"
         android:layout_marginEnd="84dp"
-        android:backgroundTint="@color/dark_red"
+        android:backgroundTint="@color/medium_red"
         android:text="@string/Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

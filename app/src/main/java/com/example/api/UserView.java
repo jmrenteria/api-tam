@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,15 +58,20 @@ public class UserView extends AppCompatActivity {
         });
 
         btnUpdate.setOnClickListener(v -> {
-            updateUser(id, new User(
-                    autoName.getText().toString(),
-                    autoUser.getText().toString(),
-                    "0", //addPassword.getText().toString(),
-                    autoRol.getText().toString())
-            );
-            intent = new Intent(context, MainActivity.class);
-            startActivity(intent);
-        });
+            if(autoUser.getText().toString().isEmpty() ||
+            autoName.getText().toString().isEmpty() ||
+            autoRol.getText().toString().isEmpty()){
+                Toast.makeText(context, "Por favor, ingrese todos los campos", Toast.LENGTH_SHORT).show();
+            }else {
+                updateUser(id, new User(
+                        autoName.getText().toString(),
+                        autoUser.getText().toString(),
+                        "0", //addPassword.getText().toString(),
+                        autoRol.getText().toString())
+                );
+                intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
+            }});
     }
 
     private void deleteUser(String i) {

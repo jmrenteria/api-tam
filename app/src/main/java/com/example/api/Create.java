@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,12 +37,19 @@ public class Create extends AppCompatActivity {
         Create context = this;
 
         btnAddUser.setOnClickListener(v -> {
-            createUser(new User(
-                    addName.getText().toString(),
-                    addUser.getText().toString(),
-                    addPassword.getText().toString(),
-                    addRol.getText().toString())
-            );
+            if (addName.getText().toString().isEmpty() || 
+                    addUser.getText().toString().isEmpty()|| 
+                    addPassword.getText().toString().isEmpty() || 
+                    addRol.getText().toString().isEmpty()){
+                Toast.makeText(context, "Por favor, ingrese todos los valores", Toast.LENGTH_SHORT).show();
+            }else {
+                createUser(new User(
+                        addName.getText().toString(),
+                        addUser.getText().toString(),
+                        addPassword.getText().toString(),
+                        addRol.getText().toString())
+                );
+            }
         });
 
         btnBack2.setOnClickListener(v -> {

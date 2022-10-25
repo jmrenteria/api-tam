@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.api.services.InfoServices;
 import com.example.api.services.dataResponse.InfoResponse;
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
                         );
                         listaUsuarios.add(user.toString());
                     }
+                }
+                if (listaUsuarios.isEmpty()){
+                    Toast.makeText(context, "No se encuentra el usuario #"+id, Toast.LENGTH_SHORT).show();
                 }
                 listUsers.setAdapter(new ArrayAdapter(context, android.R.layout.simple_list_item_1, listaUsuarios));
             }
