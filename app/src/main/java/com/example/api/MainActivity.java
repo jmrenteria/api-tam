@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.api.services.InfoServices;
@@ -21,9 +23,14 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     ListView listUsers;
+    EditText writeID;
+    Button btnCreate, btnSearch;
+
     ArrayList<String> listaUsuarios;
     Intent intent;
     InfoApi user;
+
+    MainActivity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +38,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listUsers = findViewById(R.id.listUsers);
+        btnCreate = findViewById(R.id.btnCreate);
+        btnSearch = findViewById(R.id.btnSearch);
+        writeID = findViewById(R.id.writeID);
 
-        MainActivity context = this;
+        context = this;
 
-        Call<InfoResponse> respInfo = (new InfoServices().getInfoService());
-        respInfo.enqueue(new Callback<InfoResponse>() {
-            @Override
-            public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
-                Log.i("Info", "Conexión establecida");
-                cargarUsuario(response.body());
+        cargarUsuario(-1);
+
+        btnSearch.setOnClickListener(v -> {
+            if (writeID.getText().toString().isEmpty()) {
+                cargarUsuario(-1);
+                return;
             }
+            cargarUsuario(Integer.parseInt(writeID.getText().toString()));
+        });
 
-            @Override
-            public void onFailure(Call<InfoResponse> call, Throwable t) {
-                Log.i("Info", "Conexión denegada");
-                Log.i("Info", t.getCause().getMessage());
-            }
+        btnCreate.setOnClickListener(v -> {
+            intent = new Intent(context, Create.class);
+            startActivity(intent);
         });
 
         listUsers.setOnItemClickListener((adapterView, view, i, l) -> {
             String[] cadenas = listUsers.getItemAtPosition(i).toString().split(" - ");
-            /*int id = Integer.parseInt(cadenas[0]);
-            String names = cadenas[1];
-            String user = cadenas[2];
-            String rol = cadenas[3];*/
             intent = new Intent(context, UserView.class);
             intent.putExtra("paramsId", cadenas[0]);
             intent.putExtra("paramsName", cadenas[1]);
@@ -64,17 +70,41 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void cargarUsuario(InfoResponse r) {
-        listaUsuarios = new ArrayList<>();
-        for (int i = 0; i < r.data.size(); i++) {
-            user = new InfoApi(
-                    r.data.get(i).getId(),
-                    r.data.get(i).getNames(),
-                    r.data.get(i).getUsername(),
-                    r.data.get(i).getRol()
-            );
-            listaUsuarios.add(user.toString());
-        }
-        listUsers.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaUsuarios));
+    private void cargarUsuario(int id) {
+        Call<InfoResponse> respInfo = (new InfoServices().getInfoService());
+        respInfo.enqueue(new Callback<InfoResponse>() {
+            @Override
+            public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
+                Log.i("Info", "Conexión establecida");
+                listaUsuarios = new ArrayList<>();
+                InfoResponse r = response.body();
+                for (int i = 0; i < r.data.size(); i++) {
+                    if (id == -1) {
+                        user = new InfoApi(
+                                r.data.get(i).getId(),
+                                r.data.get(i).getNames(),
+                                r.data.get(i).getUsername(),
+                                r.data.get(i).getRol()
+                        );
+                        listaUsuarios.add(user.toString());
+                    } else if (r.data.get(i).getId() == id) {
+                        user = new InfoApi(
+                                r.data.get(i).getId(),
+                                r.data.get(i).getNames(),
+                                r.data.get(i).getUsername(),
+                                r.data.get(i).getRol()
+                        );
+                        listaUsuarios.add(user.toString());
+                    }
+                }
+                listUsers.setAdapter(new ArrayAdapter(context, android.R.layout.simple_list_item_1, listaUsuarios));
+            }
+
+            @Override
+            public void onFailure(Call<InfoResponse> call, Throwable t) {
+                Log.i("Info", "Conexión denegada");
+                Log.i("Info", t.getCause().getMessage());
+            }
+        });
     }
 }

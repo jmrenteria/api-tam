@@ -13,6 +13,7 @@
     <string name="Username">Usuario</string>
     <string name="Rol">Rol</string>
     <string name="ID">ID</string>
+    <string name="Password">Password</string>
 
     <string name="Description">Usuarios registrados</string>
     <string name="User">Usuario #</string>
