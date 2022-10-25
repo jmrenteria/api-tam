@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">API</string>
+
+    <string name="Tittle">CRUD</string>
+
+    <string name="Delete">Eliminar</string>
+    <string name="Upload">Actualizar</string>
+    <string name="Create">Agregar</string>
+    <string name="Read">Consultar</string>
+    <string name="Back">Volver</string>
+
+    <string name="Name">Nombre</string>
+    <string name="Username">Usuario</string>
+    <string name="Rol">Rol</string>
+    <string name="ID">ID</string>
+    <string name="Password">Password</string>
+
+    <string name="Description">Usuarios registrados</string>
+    <string name="User">Usuario #</string>
+    <string name="NewUser">Creación de usuario</string>
+    <string name="uploadUser">Actualización de usuario</string>
+    <string name="NoText">XXXXXX</string>
 </resources>
