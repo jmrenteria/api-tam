@@ -6,6 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class InfoResponse {
-    @SerializedName("date") public String date;
     @SerializedName("data") public List<InfoApi> data;
+    //@SerializedName("date") public InfoDate date; //No se por que no funciona
 }

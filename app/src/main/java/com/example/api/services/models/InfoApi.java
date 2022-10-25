@@ -7,6 +7,17 @@ public class InfoApi {
     String names, username, rol;
     Date created_at, updated_at;
 
+    public String toString() {
+        return id + " - " + names + " - " + username + " - " + rol;
+    }
+
+    public InfoApi(int id, String names, String username, String rol) {
+        this.id = id;
+        this.names = names;
+        this.username = username;
+        this.rol = rol;
+    }
+
     public int getId() {
         return id;
     }
